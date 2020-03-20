@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Игра</title>
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+	<style>
+		 @font-face {
+    	font-family: dooml; /* Имя шрифта */
+    	src: url(AmazDooMLeft.ttf); /* Путь к файлу со шрифтом */
+   		}
+   		@font-face {
+    	font-family: doomr; /* Имя шрифта */
+    	src: url(AmazDooMRight.ttf); /* Путь к файлу со шрифтом */
+   		}
+		.box {
+			
+			height: 100px;
+			width: 100px;
+			background-color: mediumpurple;
+			transition: 0.2s;
+			position: absolute;
+			opacity: 0.8;
+			border-radius: 50%
+			
+		}	
+
+		.trap {
+			
+			height: 100px;
+			width: 100px;
+			background-color: mediumpurple;
+			transition: 0.2s;
+			position: absolute;
+			opacity: 0.8;
+			border-radius: 50%
+			
+		}	
+
+		.konec {
+			
+			height: 100px;
+			width: 100px;
+			background-color: mediumpurple;
+			transition: 0.2s;
+			position: absolute;
+			opacity: 0.8;
+			border-radius: 50%
+			
+		}	
+		H1 {
+			font-family: dooml;
+			font-size: 500%;
+			color: mediumpurple
+		}
+	</style>
+</head>
+<body>
+	<div class="text-center" style="background-image: url(star.png);background-size: 100% 100%;height: 966px">
+		<div style="height: 10px;background-color: mediumpurple;width: 0%;border-radius: 3px" class="shkala"></div>
+		<h1>Твой сче<span style="font-family: doomr">Т:</span><span style="font-size: 120%;color: #cab5f4" class="score">0</span> <!--<span style="font-family: doomr"></span>--></h1>
+		<div class="winner mx-auto text-center" style="height: 300px;width: 600px;background-color: #cab5f4;border-radius: 40px;opacity: 0.8;border: solid 2px mediumpurple;opacity:0;position: absolute;left: 34.5%">
+			<h1 style="">Winner Winner Chicken Dinner</h1>
+		</div>
+		<div class="loser mx-auto text-center" style="height: 300px;width: 600px;background-color: #cab5f4;border-radius: 40px;opacity: 0.8;border: solid 2px mediumpurple;opacity:0;position: absolute;left: 34.5%">
+			<h1 style="">not winner, cледующий раз повезет</h1>
+		</div>
+		<img src="source.gif" style="position: absolute;background-repeat: repeat;transform: rotate(25deg);top: 150px;left: 1300px" class="gif" >
+		<img src="source.gif" style="position: absolute;background-repeat: repeat;transform: rotate(25deg);top: 200px;left: 200px" class="gif" >
+		<img src="source.gif" style="position: absolute;background-repeat: repeat;transform: rotate(25deg);top: 100px;left: 800px" class="gif" >
+		<!--Круглишки-->
+		<div class="box prikol" style="top: 312px;left: 1612;"></div>
+		<div class="box prikol" style="top: 642px;left: 1528px;"></div>
+		<div class="box prikol" style="top: 123px;left: 924px;"></div>
+		<div class="box prikol" style="top: 532px;left: 200px;"></div>
+		<div class="box prikol" style="top: 300px;left: 1436px;"></div>
+		<div class="box prikol" style="top: 378px;left: 1118px;"></div>
+		<div class="box prikol" style="top: 272px;left: 1771px;"></div>
+		<div class="box prikol" style="top: 198px;left: 483px;"></div>
+		<div class="trap prikol" style="top: 500px;left: 1536px;"></div>
+		<div class="trap prikol" style="top: 730px;left: 734px;"></div>
+		<div class="trap prikol" style="top: 330px;left: 834px;"></div>
+		<div class="konec prikol" style="top: 730px;left: 1234px;"></div>
+		
+
+
+
+	</div>
+
+	<script type="text/javascript">
+		let box = document.querySelectorAll(".box")
+		let time = document.querySelector(".vremya")
+		let score = 0
+		let countTime = 4
+		let score2 = document.querySelector(".score")
+		let prikol = document.querySelectorAll(".prikol")
+		let trap = document.querySelectorAll(".trap")
+		let konec = document.querySelector(".konec")
+		let loser = document.querySelector(".loser")
+		let winner = document.querySelector(".winner")
+		let shkala = document.querySelector(".shkala")
+		let gif = document.querySelectorAll(".gif")
+		alert("Добро пожаловать в мою мини игру! Чтобы выйграть в этой игре тебе надо набрать 5 очков, но не так все легко тебе будут мешать ловушки и прочие плюшки. УДАЧИ!")
+
+		for(let i = 0; i < 8; i++) {	
+		box[i].onclick = function() {
+				score = score +1
+				score2.innerHTML = score
+				box[i].style.transition = "0.5s"
+				box[i].style.display = "none"
+				if(score==5){
+					for(let i = 0; i < 12; i++) {
+					prikol[i].style.transition = "1s"
+					prikol[i].style.opacity = "0"
+					winner.style.transition = "1s"
+					winner.style.opacity = "0.8"
+					
+
+					}
+				}
+				if(score==1){
+					shkala.style.transition = "0.8s"
+					shkala.style.width = "20%"
+				}
+				if(score==2){
+					shkala.style.width = "40%"
+				}
+				if(score==3){
+					shkala.style.width = "60%"
+				}
+				if(score==4){
+					shkala.style.width = "80%"
+				}
+				if(score==5){
+					shkala.style.width = "100%"
+					gif[0].src = "winner.gif"
+					gif[0].style.width = "20%"
+					gif[1].src = "winner.gif"
+					gif[1].style.width = "20%"
+					gif[2].src = "winner.gif"
+					gif[2].style.width = "20%"
+				}
+			}
+		}
+
+		for(let i = 0; i < 3; i++) {	
+		trap[i].onclick = function() {
+				score = score -1
+				score2.innerHTML = score
+				trap[i].style.transition = "0.5s"
+				trap[i].style.display = "none"
+				if(score==1){
+					shkala.style.transition = "0.8s"
+					shkala.style.width = "20%"
+				}
+				if(score==2){
+					shkala.style.width = "40%"
+				}
+				if(score==3){
+					shkala.style.width = "60%"
+				}
+				if(score==4){
+					shkala.style.width = "80%"
+				}
+				if(score==5){
+					shkala.style.width = "100%"
+				}
+				if(score==0){
+					shkala.style.width = "0%"
+				}
+			}
+		}
+
+		konec.onclick = function(){
+					for(let i = 0; i < 12; i++) {
+					prikol[i].style.transition = "1s"
+					prikol[i].style.opacity = "0"
+					loser.style.transition = "1s"
+					loser.style.opacity = "0.8"
+					shkala.style.width = "0%"
+
+					}
+				
+		}
+		//let vremya = function() {
+			//countTime = countTime - 1
+			//time.innerHTML = countTime
+		//}-
+		
+		//let boxNone = function() {
+			//for(let i = 0; i < 8; i++) {
+			//box[i].style.display = "none"
+
+			//}
+			
+		//}
+
+		//let vremyaTimer = setInterval(vremya,1000)
+		//setTimeout(() => { clearInterval(vremyaTimer);}, 5000);
+		//setTimeout(boxNone,4000)
+		//for(let i = 0; i < 6; i++) {}
+
+	</script>
+</body>
+</html>
+
+
