@@ -77,7 +77,9 @@
 </head>
 <body>
 	<div class="text-center" style="background-image: url(star.png);background-size: 100% 100%;height: 966px">
+		<div style="height: 10px;background-color: red;width: 0%;border-radius: 3px" class="vremya"></div>
 		<div style="height: 10px;background-color: mediumpurple;width: 0%;border-radius: 3px" class="shkala"></div>
+		
 		<h1>Твой сче<span style="font-family: doomr">Т:</span><span style="font-size: 120%;color: #cab5f4" class="score">0</span> <!--<span style="font-family: doomr"></span>--></h1>
 		<div class="winner mx-auto text-center" style="height: 300px;width: 600px;background-color: #cab5f4;border-radius: 40px;opacity: 0.8;border: solid 2px mediumpurple;opacity:0;position: absolute;left: 34.5%">
 			<h1 style="">Winner Winner Chicken Dinner</h1>
@@ -111,7 +113,6 @@
 		let box = document.querySelectorAll(".box")
 		let time = document.querySelector(".vremya")
 		let score = 0
-		let countTime = 4
 		let score2 = document.querySelector(".score")
 		let prikol = document.querySelectorAll(".prikol")
 		let trap = document.querySelectorAll(".trap")
@@ -119,8 +120,10 @@
 		let loser = document.querySelector(".loser")
 		let winner = document.querySelector(".winner")
 		let shkala = document.querySelector(".shkala")
+		let vremya = document.querySelector(".vremya")
 		let gif = document.querySelectorAll(".gif")
-		alert("Добро пожаловать в мою мини игру! Чтобы выйграть в этой игре тебе надо набрать 5 очков, но не так все легко тебе будут мешать ловушки и прочие плюшки. УДАЧИ!")
+		let countTime = 0
+		alert("Добро пожаловать в мою мини игру! Чтобы выйграть в этой игре тебе надо набрать 5 очков, но не так все легко у тебя всего лишь 5 секунд к тому же тебе будут мешать ловушки и прочие плюшки. УДАЧИ!")
 
 		for(let i = 0; i < 8; i++) {	
 		box[i].onclick = function() {
@@ -134,6 +137,8 @@
 					prikol[i].style.opacity = "0"
 					winner.style.transition = "1s"
 					winner.style.opacity = "0.8"
+					loser.style.display = "none"
+					vremya.style.display = "none"
 					
 
 					}
@@ -202,6 +207,32 @@
 					}
 				
 		}
+
+		let boxNone = function() {
+			for(let i = 0; i < 12; i++) {
+					prikol[i].style.transition = "1s"
+					prikol[i].style.opacity = "0"
+					loser.style.transition = "1s"
+					loser.style.opacity = "0.8"
+					shkala.style.width = "0%"
+
+					}
+			
+			
+			
+		}
+		
+		//let vremya0 = function() {
+			//vremya.style.transition = "0.8s"
+			//vremya.style.width = "100%"
+		//}
+
+
+		//setInterval(vremya4,1000)
+		//setInterval(vremya3,2000)
+		//setInterval(vremya2,3000)
+		//setInterval(vremya1,4000)
+		//setInterval(vremya0,5000)
 		//let vremya = function() {
 			//countTime = countTime - 1
 			//time.innerHTML = countTime
@@ -214,10 +245,15 @@
 			//}
 			
 		//}
+		let vremya1 = function() {
+			countTime = countTime +20
+			vremya.style.transition = "0.8s"
+			vremya.style.width = countTime+"%"
+		}
 
-		//let vremyaTimer = setInterval(vremya,1000)
-		//setTimeout(() => { clearInterval(vremyaTimer);}, 5000);
-		//setTimeout(boxNone,4000)
+		let vremyaTimer = setInterval(vremya1,1000)
+		setTimeout(() => { clearInterval(vremyaTimer);}, 6000);
+		setTimeout(boxNone,5000)
 		//for(let i = 0; i < 6; i++) {}
 
 	</script>
