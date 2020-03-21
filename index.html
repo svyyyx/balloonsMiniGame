@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<title>Игра</title>
+	<title>死の星に気をつけろ</title>
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 	<style>
 		 @font-face {
@@ -17,11 +17,12 @@
 			
 			height: 100px;
 			width: 100px;
-			background-color: mediumpurple;
+			background-image: url(prav.png);
 			transition: 0.2s;
 			position: absolute;
 			opacity: 0.8;
-			border-radius: 50%
+			border-radius: 50%;
+			background-size: 100% 100%
 			
 		}	
 
@@ -29,11 +30,12 @@
 			
 			height: 100px;
 			width: 100px;
-			background-color: mediumpurple;
+			background-image: url(stars.png);
 			transition: 0.2s;
 			position: absolute;
 			opacity: 0.8;
-			border-radius: 50%
+			border-radius: 50%;
+			background-size: 100% 100%
 			
 		}	
 
@@ -41,17 +43,28 @@
 			
 			height: 100px;
 			width: 100px;
-			background-color: mediumpurple;
+			background-image: url(death.png);
+			background-size: 100% 100%;
 			transition: 0.2s;
 			position: absolute;
 			opacity: 0.8;
 			border-radius: 50%
+			
 			
 		}	
 		H1 {
 			font-family: dooml;
 			font-size: 500%;
 			color: mediumpurple
+		}
+		.prikol {
+			transition: 1s;
+		}
+		.prikol:hover {
+			transition: 0.7s;
+			-webkit-filter: drop-shadow(0 0 10px rgba(255,100,0,1));
+   			 filter: drop-shadow(0 0 10px rgba(255,100,0,1));
+			transform: rotate(360deg);
 		}
 	</style>
 </head>
@@ -80,7 +93,7 @@
 		<div class="trap prikol" style="top: 500px;left: 1536px;"></div>
 		<div class="trap prikol" style="top: 730px;left: 734px;"></div>
 		<div class="trap prikol" style="top: 330px;left: 834px;"></div>
-		<div class="konec prikol" style="top: 730px;left: 1234px;"></div>
+		<div class="konec prikol" style="top: 730px;left: 1234px;color: orange"></div>
 		
 
 
